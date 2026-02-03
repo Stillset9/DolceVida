@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dulce Vida Pastelería - Viandas Saludables y Pastelería Artesanal en Uruguay.">
+    <title>Dulce Vida | Pastelería & Viandas</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary-color: #D4A373; /* Tono pastel/tierra cálido */
+            --secondary-color: #FAEDCD; /* Crema suave */
+            --accent-green: #606C38; /* Verde para lo saludable */
+            --text-dark: #2C3639;
+            --text-light: #ffffff;
+            --whatsapp-green: #25D366;
+            --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: #fafafa;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: #fff;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background-color: #b58556;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* --- SOCIAL STATS --- */
+        .social-stats {
+            background-color: var(--secondary-color);
+            padding: 3rem 5%;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item.ig i { background: var(--instagram-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-number { font-size: 1.8rem; font-weight: 700; display: block; }
+        .stat-label { font-size: 0.9rem; text-transform: uppercase; color: #666; }
+
+        /* --- MENUS --- */
+        .menu-section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-body { padding: 1.5rem; }
+        .card-title { font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .card-desc { font-size: 0.9rem; color: #666; margin-bottom: 1rem; }
+        .price { color: var(--accent-green); font-weight: 700; font-size: 1.1rem; }
+
+        /* --- INSTAGRAM FEED MOCKUP --- */
+        .ig-feed {
+            padding: 5rem 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .ig-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--instagram-gradient);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+        }
+
+        /* --- FLOATING WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #1ebc57;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--text-dark);
+            color: #fff;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-info p { margin-bottom: 0.5rem; color: #ccc; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* En un proyecto real, aquí iría un menú hamburguesa */
+            .social-stats { gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Dulce Vida <span style="color:var(--text-dark); font-size:0.8rem;">Pastelería</span></div>
+        <nav class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Menú</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="https://www.instagram.com/dulce.vida.pasteleria_/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1>Equilibrio y Sabor</h1>
+        <p>Desde viandas saludables para tu semana hasta la pastelería artesanal más dulce para tus antojos.</p>
+        <a href="https://wa.me/598094515052?text=Hola!%20Quisiera%20hacer%20un%20pedido%20de..." class="btn btn-primary" target="_blank">
+            <i class="fab fa-whatsapp"></i> Hacer Pedido
+        </a>
+    </section>
+
+    <section class="social-stats">
+        <div class="stat-item ig">
+            <i class="fab fa-instagram"></i>
+            <span class="stat-number" id="followers">1.2k</span>
+            <span class="stat-label">Seguidores</span>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-utensils"></i>
+            <span class="stat-number">+500</span>
+            <span class="stat-label">Viandas Entregadas</span>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-star"></i>
+            <span class="stat-number">4.9</span>
+            <span class="stat-label">Calificación</span>
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Nuestras Propuestas</h2>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="filterMenu('viandas')">Viandas Saludables</button>
+            <button class="tab-btn" onclick="filterMenu('pasteleria')">Pastelería</button>
+        </div>
+
+        <div class="grid-container" id="menu-grid">
+            </div>
+    </section>
+
+    <section class="ig-feed">
+        <i class="fab fa-instagram" style="font-size: 3rem; background: var(--instagram-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+        <h2 style="margin-top: 1rem;">Síguenos en @dulce.vida.pasteleria_</h2>
+        <p style="color: #666; margin-top: 0.5rem;">Descubre nuestros menús semanales y novedades diarias.</p>
+        
+        <a href="https://www.instagram.com/dulce.vida.pasteleria_/" target="_blank" class="ig-btn">
+            Ver Perfil Completo
+        </a>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <h3>Dulce Vida</h3>
+            <p>Montevideo, Uruguay</p>
+            <p><i class="fab fa-whatsapp"></i> 094 515 052</p>
+            <p>&copy; 2024 Dulce Vida Pastelería. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/598094515052?text=Hola,%20vengo%20de%20su%20web%20y%20quiero%20m%C3%A1s%20info!" class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Datos simulados de productos
+        const products = [
+            {
+                category: 'viandas',
+                title: 'Bowl Nutritivo',
+                desc: 'Quinoa, vegetales asados de estación, huevo soft y aderezo de la casa.',
+                img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                price: '$350'
+            },
+            {
+                category: 'viandas',
+                title: 'Wok de Pollo',
+                desc: 'Salteado de pollo con mix de vegetales crujientes y salsa de soja baja en sodio.',
+                img: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                price: '$380'
+            },
+            {
+                category: 'pasteleria',
+                title: 'Alfajores de Maicena',
+                desc: 'Clásicos, se deshacen en la boca. Rellenos de mucho dulce de leche.',
+                img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                price: '$60 c/u'
+            },
+            {
+                category: 'pasteleria',
+                title: 'Cheesecake Frutos Rojos',
+                desc: 'Base crocante, crema suave de queso y topping natural de frutos del bosque.',
+                img: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                price: '$180 porción'
+            }
+        ];
+
+        const grid = document.getElementById('menu-grid');
+        const btns = document.querySelectorAll('.tab-btn');
+
+        function renderProducts(filter) {
+            grid.innerHTML = '';
+            const filtered = products.filter(p => p.category === filter);
+            
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-img" style="background-image: url('${p.img}')"></div>
+                    <div class="card-body">
+                        <h3 class="card-title">${p.title}</h3>
+                        <p class="card-desc">${p.desc}</p>
+                        <div class="price">${p.price}</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterMenu(category) {
+            // Update buttons
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Animation reset
+            grid.style.opacity = '0';
+            setTimeout(() => {
+                renderProducts(category);
+                grid.style.opacity = '1';
+            }, 200);
+        }
+
+        // Init
+        renderProducts('viandas');
+
+        // Simple counter animation for social proof
+        const followerCount = document.getElementById('followers');
+        let count = 0;
+        const target = 1200;
+        const speed = 20;
+
+        const updateCount = () => {
+            const inc = target / speed;
+            if(count < target) {
+                count += inc;
+                followerCount.innerText = Math.ceil(count) + (count > 999 ? 'k' : ''); 
+                // Adjust formatting logic for simplicity in this demo
+                if(count > 999) followerCount.innerText = (count/1000).toFixed(1) + 'k';
+                setTimeout(updateCount, 40);
+            }
+        }
+        
+        // Trigger animation when scrolling implies visibility (simplified for demo)
+        setTimeout(updateCount, 1000);
+
+    </script>
+</body>
+</html>
